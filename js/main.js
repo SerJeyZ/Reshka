@@ -189,8 +189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
 
 var delay = 1500;
-var bulletBarLine = document.querySelector('.slider-pagination-bar__line');
-var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper', {
+var desktop = {
   modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"], swiper__WEBPACK_IMPORTED_MODULE_0__["Parallax"]],
   rebuildOnUpdate: true,
   observer: true,
@@ -211,21 +210,61 @@ var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper', {
     nextEl: '.slider-button-next',
     prevEl: '.slider-button-prev'
   },
-  breakpoints: {
-    320: {
-      pagination: {
-        el: '.slider-pagination',
-        type: 'bullets'
-      }
-    },
-    992: {
-      pagination: {
-        el: '.slider-pagination',
-        type: 'fraction',
-        formatFractionCurrent: addZero,
-        formatFractionTotal: addZero
-      }
-    }
+  pagination: {
+    el: '.slider-pagination',
+    type: 'fraction',
+    formatFractionCurrent: addZero,
+    formatFractionTotal: addZero
+  }
+};
+var mobile = {
+  modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"], swiper__WEBPACK_IMPORTED_MODULE_0__["Parallax"]],
+  rebuildOnUpdate: true,
+  observer: true,
+  observeParents: true,
+  loop: true,
+  slidersPerView: 1,
+  speed: delay,
+  parallax: true,
+  fadeEffect: {
+    crossFade: true
+  },
+  effect: 'fade',
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false
+  },
+  pagination: {
+    el: '.slider-pagination',
+    type: 'bullets'
+  }
+};
+var bulletBarLine = document.querySelector('.slider-pagination-bar__line');
+var swiper;
+
+var barActive = function barActive() {
+  bulletBarLine.style = "width:0";
+  setTimeout(function () {
+    bulletBarLine.style = "width:100%;transition: ".concat(delay, "ms;");
+  }, 0);
+};
+
+if (window.innerWidth > 992) {
+  swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper', desktop);
+  bulletBarLine.style = "width:100%;transition: ".concat(delay, "ms;");
+} else if (window.innerWidth < 991) {
+  swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper', mobile);
+}
+
+window.addEventListener('resize', function () {
+  if (window.innerWidth > 992) {
+    swiper.destroy();
+    swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper', desktop);
+    barActive();
+    swiper.on('slideChange', barActive);
+  } else if (window.innerWidth < 991) {
+    swiper.destroy();
+    swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper', mobile);
   }
 });
 
@@ -233,16 +272,7 @@ function addZero(num) {
   return num > 9 ? num : '0' + num;
 }
 
-bulletBarLine.style = "width:100%;transition: ".concat(delay, "ms;");
-swiper.on('slideChange', function () {
-  bulletBarLine.style = "width:0";
-  setTimeout(function () {
-    bulletBarLine.style = "width:100%;transition: ".concat(delay, "ms;");
-  }, 0);
-});
-window.addEventListener("resize", function () {
-  swiper.update();
-});
+swiper.on('slideChange', barActive);
 
 /***/ }),
 
@@ -318,8 +348,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _import_modules__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./import/modules */ "./src/js/import/modules.js");
 /* harmony import */ var _import_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./import/components */ "./src/js/import/components.js");
 /* harmony import */ var _import_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_import_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var picturefill__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! picturefill */ "./node_modules/picturefill/dist/picturefill.js");
+/* harmony import */ var picturefill__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(picturefill__WEBPACK_IMPORTED_MODULE_2__);
 
 
+
+
+window.onload = function () {
+  picturefill__WEBPACK_IMPORTED_MODULE_2___default()();
+};
 
 /***/ })
 

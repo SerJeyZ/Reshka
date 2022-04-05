@@ -32,7 +32,7 @@
     <main class="page-main">
       <section class="hero"> 
         <div class="slider-container">
-          <div class="swiper full-slider hero__slider">
+          <div class="swiper full-slider">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <div class="full-slider__item">
@@ -42,7 +42,8 @@
                   </div>
                   <div class="full-slider__col full-slider__col--right">
                     <picture>
-                      <source type="image/webp" srcset="./img/hero-slider/slide-1.webp"><img class="slider-img" src="./img/hero-slider/slide-1.jpg" data-swiper-parallax-x="100" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="800" alt="slide-1">
+                      <source type="image/webp" srcset="./img/hero-slider/slide-1.webp, ./img/hero-slider/slide-1@2.webp 2x">
+                      <source srcset="./img/hero-slider/slide-1.jpg, ./img/hero-slider/slide-1@2.jpg 2x"><img class="slider-img" src="./img/hero-slider/slide-1.jpg" data-swiper-parallax-x="100" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="800" alt="slide-1">
                     </picture>
                   </div>
                 </div>
@@ -55,7 +56,8 @@
                   </div>
                   <div class="full-slider__col full-slider__col--right">
                     <picture>
-                      <source type="image/webp" srcset="./img/hero-slider/slide-2.webp"><img class="slider-img" src="./img/hero-slider/slide-2.jpg" data-swiper-parallax-x="100" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="800" alt="slide-1">
+                      <source type="image/webp" srcset="./img/hero-slider/slide-2.webp, ./img/hero-slider/slide-2@2.webp 2x">
+                      <source srcset="./img/hero-slider/slide-1.jpg, ./img/hero-slider/slide-2@2.jpg 2x"><img class="slider-img" src="./img/hero-slider/slide-2.jpg" data-swiper-parallax-x="100" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="800" alt="slide-2">
                     </picture>
                   </div>
                 </div>
@@ -68,19 +70,20 @@
                   </div>
                   <div class="full-slider__col full-slider__col--right">
                     <picture>
-                      <source type="image/webp" srcset="./img/hero-slider/slide-1.webp"><img class="slider-img" src="./img/hero-slider/slide-1.jpg" data-swiper-parallax-x="100" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="800" alt="slide-1">
+                      <source type="image/webp" srcset="./img/hero-slider/slide-1.webp, ./img/hero-slider/slide-1@2.webp 2x">
+                      <source srcset="./img/hero-slider/slide-1.jpg, ./img/hero-slider/slide-1@2.jpg 2x"><img class="slider-img" src="./img/hero-slider/slide-1.jpg" data-swiper-parallax-x="100" data-swiper-parallax-opacity="0" data-swiper-parallax-duration="800" alt="slide-3">
                     </picture>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="hero__slider-nav">
+            <div class="full-slider__nav">
               <div class="slider-button-prev">
                 <svg class="icon icon--small">
                   <use xlink:href="./img/sprites/sprite.svg#arrow-left"></use>
                 </svg>
               </div>
-              <div class="slider-pagination-wrap">
+              <div class="full-slider__pagination-wrap">
                 <div class="slider-pagination"></div>
                 <div class="slider-pagination-bar"> 
                   <div class="slider-pagination-bar__line"></div>
