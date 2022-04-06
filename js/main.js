@@ -187,25 +187,34 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/swiper.esm.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
-var delay = 1500;
-var desktop = {
-  modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"], swiper__WEBPACK_IMPORTED_MODULE_0__["Parallax"]],
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var delay = 2000;
+var params = {
   rebuildOnUpdate: true,
   observer: true,
   observeParents: true,
   loop: true,
   slidersPerView: 1,
-  speed: delay,
+  speed: 1500,
   parallax: true,
   fadeEffect: {
     crossFade: true
   },
   effect: 'fade',
   autoplay: {
-    delay: 2000,
+    delay: delay,
     disableOnInteraction: false
-  },
+  }
+};
+
+var desktop = _objectSpread(_objectSpread({}, params), {}, {
+  modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Navigation"], swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"], swiper__WEBPACK_IMPORTED_MODULE_0__["Parallax"]],
   navigation: {
     nextEl: '.slider-button-next',
     prevEl: '.slider-button-prev'
@@ -216,29 +225,16 @@ var desktop = {
     formatFractionCurrent: addZero,
     formatFractionTotal: addZero
   }
-};
-var mobile = {
+});
+
+var mobile = _objectSpread(_objectSpread({}, params), {}, {
   modules: [swiper__WEBPACK_IMPORTED_MODULE_0__["Pagination"], swiper__WEBPACK_IMPORTED_MODULE_0__["Autoplay"], swiper__WEBPACK_IMPORTED_MODULE_0__["EffectFade"], swiper__WEBPACK_IMPORTED_MODULE_0__["Parallax"]],
-  rebuildOnUpdate: true,
-  observer: true,
-  observeParents: true,
-  loop: true,
-  slidersPerView: 1,
-  speed: delay,
-  parallax: true,
-  fadeEffect: {
-    crossFade: true
-  },
-  effect: 'fade',
-  autoplay: {
-    delay: 2000,
-    disableOnInteraction: false
-  },
   pagination: {
     el: '.slider-pagination',
     type: 'bullets'
   }
-};
+});
+
 var bulletBarLine = document.querySelector('.slider-pagination-bar__line');
 var swiper;
 

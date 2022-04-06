@@ -1354,14 +1354,14 @@ section.hero {
   overflow: hidden;
 }
 
-.full-slider__col--left {
+.full-slider__col--info {
   position: relative;
   padding-bottom: 8rem;
   padding-right: 2rem;
   z-index: 1;
 }
 
-.full-slider__col--right {
+.full-slider__col--img {
   background-color: #F7FAFB;
 }
 
@@ -1488,13 +1488,13 @@ section.hero {
     padding-left: 0;
   }
 
-  .full-slider__col--left {
+  .full-slider__col--info {
     flex-basis: 100%;
     padding-left: 2rem;
     padding-bottom: 6rem;
   }
 
-  .full-slider__col--right {
+  .full-slider__col--img {
     position: absolute;
     top: 0;
     left: 0;
@@ -1502,7 +1502,7 @@ section.hero {
     right: 0;
   }
 
-  .full-slider__col--right::after {
+  .full-slider__col--img::after {
     content: "";
     position: absolute;
     top: 0;
